@@ -2,17 +2,44 @@
 
 import { useState, useEffect } from "react";
 
+const roles = ["web designer", "front-end developer", "full stack engineer"];
+
 const Hero = () => {
-  const [currentRole, setCurrentRole] = useState(0);
-  const roles = ["web designer", "front-end developer", "full stack engineer"];
+  const [displayText, setDisplayText] = useState("");
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    const currentRole = roles[currentRoleIndex];
+    let timeoutId: NodeJS.Timeout;
 
-    return () => clearInterval(interval);
-  }, [roles.length]);
+    if (isTyping) {
+      // Typing effect
+      if (displayText.length < currentRole.length) {
+        timeoutId = setTimeout(() => {
+          setDisplayText(currentRole.slice(0, displayText.length + 1));
+        }, 100);
+      } else {
+        // Finished typing, wait then start deleting
+        timeoutId = setTimeout(() => {
+          setIsTyping(false);
+        }, 2000);
+      }
+    } else {
+      // Deleting effect
+      if (displayText.length > 0) {
+        timeoutId = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1));
+        }, 50);
+      } else {
+        // Finished deleting, move to next role
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+        setIsTyping(true);
+      }
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [displayText, currentRoleIndex, isTyping]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
@@ -31,11 +58,19 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* Main Title with Animated Role */}
+        {/* Main Title with Typewriter Animation */}
         <div className="mb-12">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
             <span className="code-bracket">{"{"}</span>
-            <span className="code-string">&quot;_{roles[currentRole]}_&quot;</span>
+            <span className="code-string">&quot;_</span>
+
+            {/* Typewriter text with cursor */}
+            <span className="code-string relative">
+              {displayText}
+              <span className="typing-cursor text-green-400 font-bold">|</span>
+            </span>
+
+            <span className="code-string">_&quot;</span>
             <span className="code-bracket">{"}"}</span>
           </h1>
 
