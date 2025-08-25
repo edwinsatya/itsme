@@ -1,0 +1,80 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+const Hero = () => {
+  const [currentRole, setCurrentRole] = useState(0);
+  const roles = ["web designer", "front-end developer", "full stack engineer"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [roles.length]);
+
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
+      {/* Matrix-like background effect */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-green-400 animate-pulse"></div>
+        <div className="absolute top-0 left-2/4 w-px h-full bg-green-400 animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-3/4 w-px h-full bg-green-400 animate-pulse delay-2000"></div>
+      </div>
+
+      <div className="text-center z-10 max-w-4xl mx-auto px-4">
+        {/* Greeting */}
+        <div className="mb-8">
+          <p className="text-gray-400 text-lg md:text-xl mb-2 font-mono">
+            <span className="code-comment">{`// HI, I'M SAMANTHA, A...`}</span>
+          </p>
+        </div>
+
+        {/* Main Title with Animated Role */}
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+            <span className="code-bracket">{"{"}</span>
+            <span className="code-string">&quot;_{roles[currentRole]}_&quot;</span>
+            <span className="code-bracket">{"}"}</span>
+          </h1>
+
+          {/* Animated arrows */}
+          <div className="flex justify-center items-center space-x-4 text-green-400 text-2xl md:text-3xl">
+            <span>=&gt;</span>
+            <div className="w-16 h-16 border-2 border-green-400 flex items-center justify-center">
+              <span className="text-xl">{"{/}"}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className="mb-12">
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-mono">
+            Crafting digital experiences with clean code and creative design. Specialized in modern web technologies and
+            user-centered solutions.
+          </p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#portfolio" className="terminal-button inline-block">
+            View Portfolio
+          </a>
+          <a href="#contact" className="terminal-button inline-block">
+            Get In Touch
+          </a>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="w-6 h-10 border-2 border-green-400 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-green-400 rounded-full mt-2 animate-bounce"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

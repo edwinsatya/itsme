@@ -1,21 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #00ff41;
+  --secondary: #ffffff;
+  --accent: #333333;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Source Code Pro", monospace;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc35;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00ff41;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid #00ff41;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Code-like styling */
+.code-bracket {
+  color: #00ff41;
+  font-weight: 600;
+}
+
+.code-comment {
+  color: #666;
+}
+
+.code-string {
+  color: #ffd700;
+}
+
+/* Hover effects */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  border-color: #00ff41;
+  transition: all 0.3s ease;
+}
+
+/* Terminal-like button */
+.terminal-button {
+  background: transparent;
+  border: 2px solid #00ff41;
+  color: #00ff41;
+  padding: 12px 24px;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.terminal-button:hover {
+  background: #00ff41;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
 }

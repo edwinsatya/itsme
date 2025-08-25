@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website Clone
 
-## Getting Started
+A modern, responsive developer portfolio website built with Next.js and Tailwind CSS, inspired by the design from [websitedemos.net/web-developer-portfolio-04](https://websitedemos.net/web-developer-portfolio-04/).
 
-First, run the development server:
+## 🎯 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Matrix-style Design**: Dark theme with green accent colors and coding aesthetic
+- **Animated Hero Section**: Dynamic text rotation and typing effects
+- **Interactive Components**: Hover effects, smooth scrolling, and responsive design
+- **Modern Tech Stack**: Built with Next.js 15, TypeScript, and Tailwind CSS
+- **Performance Optimized**: Fast loading with Next.js optimization and Turbopack
+- **Fully Responsive**: Mobile-first design that works on all devices
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Sections
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Hero Section** - Dynamic introduction with rotating job titles
+2. **About Me** - Interactive code-style presentation of skills and experience
+3. **Portfolio** - Project showcase with placeholder images and tech stacks
+4. **Services** - Professional services offered with detailed descriptions
+5. **Resume** - Experience timeline and skills visualization
+6. **Contact** - Functional contact form with social links
+7. **Footer** - Simple footer with copyright information
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Font**: Source Code Pro (Google Fonts)
+- **Deployment Ready**: Vercel, Netlify, or any static hosting
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
+   \`\`\`bash
+   git clone <your-repo-url>
+   cd itsme
+   \`\`\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Install dependencies:
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-## Deploy on Vercel
+3. Run the development server:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Customization
+
+### Colors
+
+The color scheme is defined in `src/app/globals.css`:
+
+- Background: `#0a0a0a` (black)
+- Primary: `#00ff41` (matrix green)
+- Secondary: `#ffffff` (white)
+- Accent: `#333333` (dark gray)
+
+### Content
+
+Update the following components to customize content:
+
+- `src/components/Hero.tsx` - Personal introduction and job titles
+- `src/components/About.tsx` - About section and skills
+- `src/components/Portfolio.tsx` - Projects and portfolio items
+- `src/components/Services.tsx` - Services offered
+- `src/components/Resume.tsx` - Experience and certifications
+- `src/components/Contact.tsx` - Contact information and form
+
+### Images
+
+Replace placeholder images in the `public/` folder:
+
+- `project1.svg` through `project6.svg` - Portfolio project images
+- Add your own images and update the paths in components
+
+## 🎯 Key Components
+
+- **MatrixRain**: Animated matrix-style background effect
+- **LoadingScreen**: Terminal-style loading animation
+- **ScrollToTop**: Smooth scroll-to-top button
+- **Header**: Responsive navigation with mobile menu
+- **TypeWriter Effects**: Custom CSS animations for text effects
+
+## 📱 Responsive Design
+
+The website is fully responsive with:
+
+- Mobile-first approach
+- Flexible grid layouts
+- Responsive navigation menu
+- Optimized typography scaling
+- Touch-friendly interactive elements
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+\`\`\`bash
+npm run build
+
+# Deploy to Vercel
+
+\`\`\`
+
+### Static Export
+
+\`\`\`bash
+npm run build
+npm run start
+\`\`\`
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Original design inspiration from [websitedemos.net](https://websitedemos.net/web-developer-portfolio-04/)
+- Built with [Next.js](https://nextjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Icons from [Lucide React](https://lucide.dev/)
+
+---
+
+**Note**: This is a portfolio template. Customize the content, images, and information to match your own professional profile and projects.
